@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/seanedw1/appstore/issues"
   },
-  "homepage": "https://github.com/seanedw1/appstore#readme"
+  "homepage": "https://github.com/seanedw1/appstore#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.0",
+    "supertest": "^2.0.0"
+  }
 }
