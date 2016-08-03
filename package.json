@@ -1,0 +1,22 @@
+{
+  "name": "appstore",
+  "version": "1.0.0",
+  "description": "fullsail appstore",
+  "main": "src/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanedw1/appstore.git"
+  },
+  "author": "sean ed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanedw1/appstore/issues"
+  },
+  "homepage": "https://github.com/seanedw1/appstore#readme"
+}
