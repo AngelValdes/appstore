@@ -14,9 +14,14 @@ const port = 3000;
 app.set('json spaces', 2);
 
 // linking routes
-app.use('/api', require('./routes/api.js')(express));
+app.use('/api/v1', require('./routes/api.js')(express));
+app.use('/api/v1', require('./routes/app.js')(express));
+app.use('/api/v1', require('./routes/user.js')(express));
+
 
 //sets variable server to the listening action on port
-app.listen(port,() => {
+const server = app.listen(port,() => {
   console.log('server active on', port)
 });
+
+module.exports = server;
