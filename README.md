@@ -9,7 +9,7 @@ To install all dependencies in command line run.
 ```
 npm i
 
-npm i mocha nodemon -g
+npm i mocha -g
 
 ```
 
@@ -18,7 +18,7 @@ npm i mocha nodemon -g
 To start sever in command line run.
 
 ```
-nodemon src/server.js
+npm start
 ```
 
 Server runs on port 3000.
