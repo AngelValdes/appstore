@@ -37,87 +37,69 @@ npm test
 
 GET /api/v1/apps
 
+Display All Apps Info - localhost:3000/api/v1/apps
+
 ```
-localhost:3000/api/v1/apps
-
-Display All Apps Info
-
 [
   {
     "id": 1,
-    "title": "pokemon go",
-    "description": "catch em all",
-    "releaseDate": "6/15/16"
+    "title": "app name",
+    "description": "description goes here",
+    "releaseDate": "1/15/99"
   },
   {
     "id": 2,
     "title": "Slack",
     "description": "commnication",
-    "releaseDate": "6/18/2015"
+    "releaseDate": "1/15/99"
   },
-  {
-    "id": 3,
-    "title": "snapchat",
-    "description": "social media",
-    "releaseDate": "9/07/16"
-  }
 ]
 ```
 
 GET /api/v1/users
 
+Display All Users Info - localhost:3000/api/v1/users
+
 ```
-localhost:3000/api/v1/users
-
-Display All Users Info
-
 [
   {
     "id": 1,
-    "name": "sean edwards"
+    "name": "john doe"
   },
   {
     "id": 2,
-    "name": "micheal jackson"
+    "name": "jane doe"
   },
-  {
-    "id": 3,
-    "name": "steve coral"
-  }
 ]
 ```
 
 GET /api/v1/apps/:id
 
+Display Single App Info - localhost:3000/api/v1/apps/1
+
 ```
-localhost:3000/api/v1/apps/1
-
-Display Single App Info
-
 {
   "id": 1,
-  "title": "pokemon go",
-  "description": "catch em all",
-  "releaseDate": "6/15/16"
+  "title": "app name",
+  "description": "description goes here",
+  "releaseDate": "1/15/99"
 }
 ```
 
 
 GET /api/v1/users/:id
 
+Display Single User Info - localhost:3000/api/v1/users/1
+
 ```
-localhost:3000/api/v1/users/1
-
-Display Single User Info
-
 {
   "id": 1,
-  "name": "sean edwards"
+  "name": "john doe"
 }
 ```
 
 ##### Contributors
-- [View Contributors](https://github.com/seanedw1/appstore/graphs/contributors)
+[View Contributors](https://github.com/seanedw1/appstore/graphs/contributors)
 
 ###### Style Guide reference
 [Airbnb](https://github.com/airbnb/javascript)
