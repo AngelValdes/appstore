@@ -9,7 +9,7 @@ To install all dependencies in command line run.
 ```
 npm i
 
-npm i mocha -g
+npm i mocha nodemon -g
 
 ```
 
@@ -30,7 +30,7 @@ To run unit test sever must be off.
 To start unit test in command line run.
 
 ```
-mocha
+npm test
 ```
 
 ## Endpoints
@@ -38,9 +38,9 @@ mocha
 GET /api/v1/apps
 
 ```
-Display All Apps Info
-
 localhost:3000/api/v1/apps
+
+Display All Apps Info
 
 [
   {
@@ -67,7 +67,7 @@ localhost:3000/api/v1/apps
 GET /api/v1/users
 
 ```
-http://localhost:3000/api/v1/users
+localhost:3000/api/v1/users
 
 Display All Users Info
 
@@ -90,7 +90,7 @@ Display All Users Info
 GET /api/v1/apps/:id
 
 ```
-http://localhost:3000/api/v1/apps/1
+localhost:3000/api/v1/apps/1
 
 Display Single App Info
 

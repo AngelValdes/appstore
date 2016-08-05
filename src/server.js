@@ -24,4 +24,5 @@ const server = app.listen(port,() => {
   console.log('server active on', port)
 });
 
+// exports server to be used elsewhere 
 module.exports = server;
