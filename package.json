@@ -22,6 +22,8 @@
   "homepage": "https://github.com/seanedw1/appstore#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "dotenv": "^2.0.0",
+    "faker": "^3.1.0",
     "mocha": "^3.0.0",
     "supertest": "^2.0.0"
   },
