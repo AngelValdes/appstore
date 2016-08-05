@@ -1,4 +1,4 @@
-//set constant of sequelize for orm
+// set constant of sequelize for orm
 const Sequelize = require('sequelize');
 
 // load in env file
@@ -6,22 +6,21 @@ require('dotenv').config();
 
 // setting constant for envs
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-
-host: process.env.DB_NAME,
-dialect: process.env.SCHEMA,
-port: process.env.DB_PORT,
-//how many connections are happening to our system
-pool:{
-  max: 5,
-  min: 0,
-  idle: 1000,
-},
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_SCHEMA,
+  port: process.env.DB_PORT,
+// how many connections are happening to our system
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000,
+  },
 // turn of logging
-logging: false,
+  logging: false,
 });
 
-//In db user table will be displayed as users (plural)
-const user = sequelize.define('user',{
+// In db user table will be displayed as users (plural)
+const user = sequelize.define('user', {
   name: {
     type: Sequelize.STRING,
   },
@@ -30,10 +29,10 @@ const user = sequelize.define('user',{
   },
   hobby: {
     type: Sequelize.STRING,
-  }
+  },
 });
 
-const course = sequelize.define('course',{
+const course = sequelize.define('course', {
   name: {
     type: Sequelize.STRING,
   },
@@ -42,14 +41,12 @@ const course = sequelize.define('course',{
   },
 });
 
-//establish relation in db for user and course
-course.hasMany(user,{
+// establish relation in db for user and course
+course.hasMany(user, {
   foreignKey: 'courseID',
-})
+});
 
-
-
-//setup ability to reach to db to syncronize to this format
+// setup ability to reach to db to syncronize to this format
 sequelize.sync();
 
 exports.sequelize = sequelize;

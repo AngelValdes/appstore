@@ -52,7 +52,7 @@ Display All Apps Info
   {
     "id": 2,
     "title": "Slack",
-    "description": "commnication",
+    "description": "communication",
     "releaseDate": "6/18/2015"
   },
   {
