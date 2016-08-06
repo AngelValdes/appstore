@@ -7,9 +7,10 @@ module.exports = (express) => {
 
 // respond with users json when a GET request is made to the users route
   router.get('/users', (req, res) => {
-// respond with this json data
-    res.json({
-      healty: true,
+    user.findAll((err) => {
+      res.status(500).json(err);
+    }, (data) => {
+      res.status(200).json(data);
     });
   });
 
@@ -18,9 +19,9 @@ module.exports = (express) => {
   router.post('/users', (req, res) => {
     user.create(req.body, (err) => {
       res.status(500).json(err);
-    }), (data) => {
+    }, (data) => {
       res.status(200).json(data);
-    };
+    });
   });
 
 
@@ -29,14 +30,16 @@ module.exports = (express) => {
 // delete
 
 
-// // respond with user by id when a GET request is made to the users by id route
-//   router.get('/users/:id', (req, res) => {
-// // respond with this json data
-//     res.json({
-//       id: 1,
-//       name: "sean edwards",
-//     });
-//   });
+// respond with user by id when a GET request is made to the users by id route
+  router.get('/users/:id', (req, res) => {
+    req.body.id = req.params.id;
+// respond with this json data
+    user.find(req.body, (err) => {
+      res.status(500).json(err);
+    }, (data) => {
+      res.status(200).json(data);
+    });
+  });
 
 // returns router with correct data
   return router;
