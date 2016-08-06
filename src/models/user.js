@@ -25,7 +25,7 @@ exports.find = (payload, err, success) => {
 
 // update
 exports.update = (payload, err, success) => {
-  db.user.update({
+  db.user.find({
     where: {
       id: payload.id,
     },
