@@ -1,13 +1,13 @@
 const db = require('./db');
 
 // create
-exports.create = (payload, err, success) => {
-  db.app.create(payload).then(success).catch(err);
+exports.create = (obj, errorCallback, successCallBack) => {
+  db.app.create(obj).then(successCallBack).catch(errorCallback);
 };
 
 // read all
-exports.findAll = (err, success) => {
-  db.app.findAll().then(success).catch(err);
+exports.all = (errorCallback, successCallBack) => {
+  db.app.all().then(successCallBack).catch(errorCallback);
 };
 
 // read by id

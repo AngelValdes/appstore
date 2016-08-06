@@ -6,8 +6,8 @@ exports.create = (payload, err, success) => {
 };
 
 // read all
-exports.findAll = (err, success) => {
-  db.user.findAll().then(success).catch(err);
+exports.all = (errorCallback, successCallBack) => {
+  db.user.all().then(successCallBack).catch(errorCallback);
 };
 
 // read by id

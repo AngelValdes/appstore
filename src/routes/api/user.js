@@ -8,7 +8,7 @@ module.exports = (express) => {
 // read
 // respond with users json when a GET request is made to the users route
   router.get('/users', (req, res) => {
-    user.findAll((err) => {
+    user.all((err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -52,6 +52,18 @@ module.exports = (express) => {
   router.get('/users/:id', (req, res) => {
     req.body.id = req.params.id;
 // respond with this json data
+    user.find(req.body, (err) => {
+      res.status(500).json(err);
+    }, (data) => {
+      res.status(200).json(data);
+    });
+  });
+
+  // read by apps by id
+  // respond with user by id when a GET request is made to the users by id route
+  router.get('/users/:id/apps', (req, res) => {
+    req.body.id = req.params.id;
+  // respond with this json data
     user.find(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
