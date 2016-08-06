@@ -8,8 +8,8 @@ module.exports = (express) => {
 // read
 // respond with apps json when a GET request is made to the apps route
   router.get('/apps', (req, res) => {
-    app.all((errorCallback) => {
-      res.status(500).json(errorCallback);
+    app.all((err) => {
+      res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
     });
@@ -18,12 +18,23 @@ module.exports = (express) => {
 
 // create
   router.post('/apps', (req, res) => {
-    app.create(req.body, (errorCallback) => {
-      res.status(500).json(errorCallback);
+    app.create(req.body, (err) => {
+      res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
     });
   });
+
+
+
+  // create
+    router.post('/apps', (req, res) => {
+      app.add(req.body, (err) => {
+        res.status(500).json(err);
+      }, (data) => {
+        res.status(200).json(data);
+      });
+    });
 
 // update
   router.post('/apps/:id', (req, res) => {
