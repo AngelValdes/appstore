@@ -1,7 +1,7 @@
 const db = require('./db');
 
 // create
-exports.create = (payload, err, success) => {
+exports.add = (payload, err, success) => {
   db.user.create(payload).then(success).catch(err);
 };
 
@@ -11,7 +11,7 @@ exports.all = (err, success) => {
 };
 
 // read by id
-exports.find = (payload, err, success) => {
+exports.one = (payload, err, success) => {
   db.user.find({
     where: {
       id: payload.id,

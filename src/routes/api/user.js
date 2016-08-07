@@ -18,7 +18,7 @@ module.exports = (express) => {
 
 // create
   router.post('/users', (req, res) => {
-    user.create(req.body, (err) => {
+    user.add(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -52,7 +52,7 @@ module.exports = (express) => {
   router.get('/users/:id', (req, res) => {
     req.body.id = req.params.id;
 // respond with this json data
-    user.find(req.body, (err) => {
+    user.one(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
