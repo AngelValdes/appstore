@@ -37,7 +37,7 @@ const app = sequelize.define('app', {
     type: Sequelize.STRING,
   },
   description: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
   },
   releaseDate: {
     type: Sequelize.DATE,
@@ -50,6 +50,18 @@ const course = sequelize.define('course', {
   },
   code: {
     type: Sequelize.STRING,
+  },
+  semester: {
+    type: Sequelize.STRING,
+  },
+  hours: {
+    type: Sequelize.DATE,
+  },
+  startDate: {
+    type: Sequelize.DATEONLY,
+  },
+  endDate: {
+    type: Sequelize.DATEONLY,
   },
 });
 
@@ -68,3 +80,4 @@ sequelize.sync();
 exports.sequelize = sequelize;
 exports.user = user;
 exports.app = app;
+exports.course = course;

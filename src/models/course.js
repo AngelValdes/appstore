@@ -1,18 +1,18 @@
 const db = require('./db');
 
 // create
-exports.create = (payload, err, success) => {
-  db.app.create(payload).then(success).catch(err);
+exports.add = (payload, err, success) => {
+  db.course.create(payload).then(success).catch(err);
 };
 
 // read all
-exports.findAll = (err, success) => {
-  db.app.findAll().then(success).catch(err);
+exports.all = (err, success) => {
+  db.course.findAll().then(success).catch(err);
 };
 
 // read by id
-exports.find = (payload, err, success) => {
-  db.app.find({
+exports.one = (payload, err, success) => {
+  db.course.find({
     where: {
       id: payload.id,
     },
@@ -25,7 +25,7 @@ exports.find = (payload, err, success) => {
 
 // update
 exports.update = (payload, err, success) => {
-  db.app.find({
+  db.course.find({
     where: {
       id: payload.id,
     },
@@ -35,8 +35,8 @@ exports.update = (payload, err, success) => {
 };
 
 // delete
-exports.destroy = (payload, err, success) => {
-  db.app.destroy({
+exports.remove = (payload, err, success) => {
+  db.course.destroy({
     where: {
       id: payload.id,
     },

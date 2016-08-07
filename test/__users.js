@@ -51,7 +51,7 @@ describe('User Routes', () => {
     const newApp = { title: 'Best New Test App', description: 'none', userID: this.user.id };
 
     App.add(newApp, (err) => {
-
+      throw new Error(err);
     }, (appData) => {
       request(server)
         .get('/api/v1/users/' + this.user.id + '/apps')
