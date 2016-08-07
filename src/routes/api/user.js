@@ -40,7 +40,7 @@ module.exports = (express) => {
   router.delete('/users/:id', (req, res) => {
     req.body.id = req.params.id;
 // respond with this json data
-    user.destroy(req.body, (err) => {
+    user.remove(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);

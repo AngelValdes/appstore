@@ -35,7 +35,7 @@ exports.update = (payload, err, success) => {
 };
 
 // delete
-exports.destroy = (payload, err, success) => {
+exports.remove = (payload, err, success) => {
   db.user.destroy({
     where: {
       id: payload.id,
