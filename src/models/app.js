@@ -1,8 +1,8 @@
 const db = require('./db');
 
 // create
-exports.add = (payload, errorCallback, successCallBack) => {
-  db.app.create(payload).then(successCallBack).catch(errorCallback);
+exports.add = (payload, err, success) => {
+  db.app.create(payload).then(success).catch(err);
 };
 
 // read all
@@ -11,7 +11,7 @@ exports.all = (err, success) => {
 };
 
 // read by id
-exports.one = (payload, errorCallback, successCallBack) => {
+exports.one = (payload, err, success) => {
   db.app.find({
     where: {
       id: payload.id,
@@ -20,7 +20,7 @@ exports.one = (payload, errorCallback, successCallBack) => {
       all: true,
       nested: true,
     }],
-  }).then(successCallBack).catch(errorCallback);
+  }).then(success).catch(err);
 };
 
 // update

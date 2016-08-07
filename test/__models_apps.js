@@ -30,7 +30,7 @@ describe('App Model', () => {
     const fakeApp = { title: faker.name.firstName() };
 
     // Call app model for adding
-    App.one(fakeApp,
+    App.add(fakeApp,
       (err) => {
         throw new Error(err);
       },

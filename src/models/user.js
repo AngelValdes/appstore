@@ -7,7 +7,7 @@ exports.add = (payload, err, success) => {
 
 // read all
 exports.all = (err, success) => {
-  db.user.all().then(success).catch(err);
+  db.user.findAll().then(success).catch(err);
 };
 
 // read by id
