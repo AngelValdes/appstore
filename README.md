@@ -35,86 +35,293 @@ npm test
 
 ## Endpoints
 
-GET /api/v1/apps
+CRUD FOR USERS
 
+*  POST localhost:3000/api/v1/users - Create User
+
+sample
 ```
-localhost:3000/api/v1/apps
+{
+  "name": "john doe",
+  "age": 50,
+  "hobby": "dancing",
+}
+```
 
-Display All Apps Info
+* GET localhost:3000/api/v1/users/1 - Display User by id
 
+sample response
+```
+{
+  "id": 1,
+  "name": "john doe",
+  "age": 50,
+  "hobby": "dancing",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-08T01:45:31.000Z",
+  "apps": []
+}
+```
+
+* GET localhost:3000/api/v1/users - Display All Users
+
+sample response
+```
 [
   {
     "id": 1,
-    "title": "pokemon go",
-    "description": "catch em all",
-    "releaseDate": "6/15/16"
+    "name": "john doe",
+    "age": 50,
+    "hobby": "dancing",
+    "createdAt": "2016-08-07T01:45:31.000Z",
+    "updatedAt": "2016-08-07T01:45:31.000Z"
   },
   {
     "id": 2,
-    "title": "Slack",
-    "description": "communication",
-    "releaseDate": "6/18/2015"
+    "name": "jane doe",
+    "age": 34,
+    "hobby": "softball",
+    "createdAt": "2016-08-7T21:56:43.000Z",
+    "updatedAt": "2016-08-7T21:56:43.000Z"
   },
   {
     "id": 3,
-    "title": "snapchat",
-    "description": "social media",
-    "releaseDate": "9/07/16"
+    "name": "kevin smith",
+    "age": 21,
+    "hobby": "programming",
+    "createdAt": "2016-08-07T00:25:11.000Z",
+    "updatedAt": "2016-08-07T00:25:13.000Z"
   }
 ]
 ```
 
-GET /api/v1/users
 
+*  POST localhost:3000/api/v1/users/1 - Update User by id
+
+sample
 ```
-localhost:3000/api/v1/users
+{
+  "id": 1,
+  "name": "steven smith",
+  "age": 45,
+  "hobby": "sports",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-11T21:54:21.000Z",
+}
+```
 
-Display All Users Info
+*  DELETE localhost:3000/api/v1/users/1 - DELETE User by id
 
+sample response
+```
+1
+```
+
+CRUD FOR APPS
+
+
+*  POST localhost:3000/api/v1/apps - create app
+
+sample
+```
+{
+  "title": "test app",
+  "description": "fjndclkdlj",
+}
+```
+
+
+* GET localhost:3000/api/v1/apps/1 - Display App by id
+
+sample response
+```
+{
+  "id": 1,
+  "title": "test app",
+  "description": "fjndclkdlj",
+  "releaseDate": null,
+  "createdAt": "2016-08-11T21:57:20.000Z",
+  "updatedAt": "2016-08-11T21:57:20.000Z",
+  "userID": null
+}
+```
+
+* GET localhost:3000/api/v1/users/1 - Display All Apps from specific user
+
+sample response
+```
+{
+  "id": 1,
+  "name": "john doe",
+  "age": 50,
+  "hobby": "dancing",
+  "createdAt": "2016-06-08T01:45:31.000Z",
+  "updatedAt": "2016-06-11T21:54:21.000Z",
+  "apps": [
+    {
+      "id": 1,
+      "title": "test app",
+      "description": "fjndclkdlj",
+      "releaseDate": null,
+      "createdAt": "2016-08-11T21:57:20.000Z",
+      "updatedAt": "2016-08-12T18:30:49.000Z",
+      "userID": 1
+    }
+  ]
+}
+```
+
+* GET localhost:3000/api/v1/apps - Display All Apps
+
+sample response
+```
 [
   {
     "id": 1,
-    "name": "sean edwards"
+    "title": "test app",
+    "description": "fake app",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
   },
   {
     "id": 2,
-    "name": "micheal jackson"
+    "title": "test app 2",
+    "description": "fake app 2",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
   },
   {
     "id": 3,
-    "name": "steve coral"
-  }
+    "title": "test app 3",
+    "description": "fake app 3",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
+  },
 ]
 ```
 
-GET /api/v1/apps/:id
+*  POST localhost:3000/api/v1/apps/1 - UPDATE App by id
 
+sample
 ```
-localhost:3000/api/v1/apps/1
-
-Display Single App Info
-
 {
   "id": 1,
-  "title": "pokemon go",
-  "description": "catch em all",
-  "releaseDate": "6/15/16"
+  "title": "testing",
+  "description": "you are updating",
+  "releaseDate": null,
+  "createdAt": "2016-08-12T18:31:36.000Z",
+  "updatedAt": "2016-08-12T19:41:46.000Z",
+  "userID": null
 }
 ```
 
+*  DELETE localhost:3000/api/v1/apps/1 - DELETE App by id
 
-GET /api/v1/users/:id
-
+sample response
 ```
-localhost:3000/api/v1/users/1
+1
+```
 
-Display Single User Info
+CRUD FOR COURSE
 
+*  POST localhost:3000/api/v1/courses - Create course
+
+sample
+```
 {
-  "id": 1,
-  "name": "sean edwards"
+  "name": "deployment of web application",
+  "code": "dwa123",
+  "semester": "1608",
 }
 ```
+
+* GET localhost:3000/api/v1/courses/1 - Display courses by id
+
+sample response
+```
+{
+  "id": 1,
+  "name": "deployment of web application",
+  "code": "dwa123",
+  "semester": "1608",
+  "hours": 50,
+  "startDate": "null",
+  "endDate": "null",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-08T01:45:31.000Z",
+}
+
+```
+
+* GET localhost:3000/api/v1/courses - Display All courses
+
+sample response
+```
+[
+{
+  "id": 1,
+  "name": "deployment of web application",
+  "code": "dwa123",
+  "semester": "1608",
+  "hours": "null",
+  "startDate": "null",
+  "endDate": "null",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-08T01:45:31.000Z",
+},{
+  "id": 2,
+  "name": "mobile device deployment",
+  "code": "mdd123",
+  "semester": "1610",
+  "hours": "null",
+  "startDate": "null",
+  "endDate": "null",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-08T01:45:31.000Z",
+},{
+  "id": 3,
+  "name": "final project 1",
+  "code": "fp1",
+  "semester": "1610",
+  "hours": "null",
+  "startDate": "null",
+  "endDate": "null",
+  "createdAt": "2016-08-08T01:45:31.000Z",
+  "updatedAt": "2016-08-08T01:45:31.000Z",
+}
+
+]
+```
+
+
+*  POST localhost:3000/api/v1/courses/1 - Update courses by id
+
+sample
+```
+{
+  "name": "deployment of web application",
+  "code": "dwa123",
+  "semester": "1610",
+  "hours": "null",
+  "startDate": "null",
+  "endDate": "null",
+}
+
+```
+
+*  DELETE localhost:3000/api/v1/courses/1 - DELETE courses by id
+
+sample response
+```
+1
+```
+
 
 ##### Contributors
 - [View Contributors](https://github.com/seanedw1/appstore/graphs/contributors)

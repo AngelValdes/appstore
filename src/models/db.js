@@ -32,6 +32,7 @@ const user = sequelize.define('user', {
   },
 });
 
+// In db app table  will be displayed as users (plural)
 const app = sequelize.define('app', {
   title: {
     type: Sequelize.STRING,
@@ -44,6 +45,7 @@ const app = sequelize.define('app', {
   },
 });
 
+// In db course table will be displayed as courses (plural)
 const course = sequelize.define('course', {
   name: {
     type: Sequelize.STRING,
@@ -65,6 +67,7 @@ const course = sequelize.define('course', {
   },
 });
 
+// establish relation in db for user and apps
 user.hasMany(app, {
   foreignKey: 'userID',
 });
