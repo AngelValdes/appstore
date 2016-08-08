@@ -35,7 +35,7 @@ npm test
 
 ## Endpoints
 
-CRUD FOR USERS
+### CRUD FOR USERS
 
 *  POST localhost:3000/api/v1/users - Create User
 
@@ -117,7 +117,7 @@ sample response
 1
 ```
 
-CRUD FOR APPS
+### CRUD FOR APPS
 
 
 *  POST localhost:3000/api/v1/apps - create app
@@ -228,7 +228,7 @@ sample response
 1
 ```
 
-CRUD FOR COURSE
+### CRUD FOR COURSE
 
 *  POST localhost:3000/api/v1/courses - Create course
 
