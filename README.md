@@ -13,15 +13,28 @@ npm i mocha -g
 
 ```
 
+### ENV file
+
+create a .env following this file structure on root level
+
+```
+DB_HOST=localhost
+DB_NAME=apiCRUD
+DB_USER=root
+DB_PASS=
+DB_SCHEMA=mysql
+DB_PORT=3306
+```
+
 ### Server
 
 To start sever in command line run.
 
+Server runs on port 3000.
+
 ```
 npm start
 ```
-
-Server runs on port 3000.
 
 ### Unit test
 
