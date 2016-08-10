@@ -24,7 +24,7 @@ npm start
 Server runs on port 3000.
 
 
-### usage
+### Usage
 
 To use debug utility tool.
 
