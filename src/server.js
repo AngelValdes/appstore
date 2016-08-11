@@ -36,7 +36,7 @@ app.use('/api/v1', require('./routes/api/course')(express));
 // sets variable server to the listening action on port
 const server = app.listen(port, () => {
 //  console.log('server active on', port);
-  util.debug('server active on' + " " + port);
+  util.debug('server active on ' + port);
 });
 
 // exports server to be used elsewhere
