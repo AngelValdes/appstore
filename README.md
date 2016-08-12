@@ -36,6 +36,21 @@ Server runs on port 3000.
 npm start
 ```
 
+Server runs on port 3000.
+
+
+### Usage
+
+To use debug utility tool.
+
+create a logs folder on root level.
+
+To start api in debug mode in command line run.
+
+```
+DEBUG = true nodemon
+```
+
 ### Unit test
 
 To run unit test sever must be off.
