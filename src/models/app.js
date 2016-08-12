@@ -1,16 +1,17 @@
 const db = require('./db');
 const util = require('../../tools/util');
+const colors = require('colors');
 
 // create
 exports.add = (payload, err, success) => {
   db.app.create(payload).then(success).catch(err);
-  util.debug('app create model');
+  util.debug(colors.green('App created'));
 };
 
 // read all
 exports.all = (err, success) => {
   db.app.findAll().then(success).catch(err);
-  util.debug('app read all model');
+  util.debug(colors.blue('read all App'));
 };
 
 // read by id
@@ -24,7 +25,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
-  util.debug('app read by id model');
+  util.debug(colors.blue('read App by id'));
 };
 
 // update
@@ -36,7 +37,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-  util.debug('app update model');
+  util.debug(colors.green('App updated'));
 };
 
 // delete
@@ -46,5 +47,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
-  util.debug('app remove model');
+  util.debug(colors.red('App deleted'));
 };

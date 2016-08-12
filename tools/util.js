@@ -6,7 +6,7 @@ const fs = require('fs');
 // set time stamp for logs
 const ts = new Date();
 
-const seperator = '\n=============\n'.blue;
+const seperator = '\n=============\n'.magenta;
 
 // debug method
 exports.debug = (data) => {

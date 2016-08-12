@@ -1,7 +1,6 @@
 const db = require('./db');
 const util = require('../../tools/util');
 
-
 // create
 exports.add = (payload, err, success) => {
   db.course.create(payload).then(success).catch(err);

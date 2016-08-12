@@ -28,6 +28,8 @@ Server runs on port 3000.
 
 To use debug utility tool.
 
+create a logs folder on root level.
+
 To start api in debug mode in command line run.
 
 ```
