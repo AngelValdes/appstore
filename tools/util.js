@@ -1,13 +1,12 @@
+const colors = require('colors');
+
 // setup for file system
 const fs = require('fs');
 
 // set time stamp for logs
 const ts = new Date();
 
-// setup for directory
-const dir = './logs';
-
-const seperator = '\n=============\n';
+const seperator = '\n=============\n'.blue;
 
 // debug method
 exports.debug = (data) => {
@@ -15,22 +14,11 @@ exports.debug = (data) => {
 
   // id debug mode equal true
   if (process.env.DEBUG) {
-// if logs directories doesnt exist create a log directory
-
-    if (!fs.existsSync(dir)) {
-  // make logs directory folder
-      fs.mkdirSync(dir);
-  // make log file
-      fs.writeFile('dir/err.log');
-// else if logs directory does exist write
-    } else if (fs.exists) {
-      // write to existing file
-      // writefile overwrites use appendfile to add
-      fs.appendFile('logs/err.log', out1, (err) => {
-        if (err) throw (err)
-      // let dev know file was sucessfully appended
-        console.log('Error log sucessfully updated');
-      });
-    } // closing if folder existing
+    fs.appendFile('logs/err.log', out1, (err) => {
+      if (err) throw err;
+    // let dev know file was sucessfully appended
+      console.log(colors.cyan('log updated sucessfully'));
+    }); // closing append file
   } // closing if debug process
-}; // closing debug method
+console.log(out1);
+}; // closing debug export
