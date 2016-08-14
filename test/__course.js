@@ -31,7 +31,7 @@ describe('Course Routes', () => {
   });
 
   // Test for a single course
-  it('GET /api/v1/courses/:id returns a course obj with id, name, and semester properties', (done) => {
+  it('GET /api/v1/courses/:id returns a obj with id, name, and semester properties', (done) => {
     request(server)
       .get('/api/v1/courses/' + this.course.id)
       .set('Accept', 'courselication/json')
