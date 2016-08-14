@@ -16,7 +16,6 @@ module.exports = (express) => {
     });
   });
 
-
 // create
   router.post('/apps', (req, res) => {
     app.add(req.body, (err) => {
@@ -28,7 +27,7 @@ module.exports = (express) => {
 
 // update
   router.post('/apps/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const id = req.params.id;
 // respond with this json data
     app.update(req.body, (err) => {
       res.status(500).json(err);

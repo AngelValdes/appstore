@@ -2,8 +2,11 @@ const expect = require('chai').expect;
 const request = require('supertest');
 
 describe('Course Routes', () => {
+  var server;
+  var course;
+
   beforeEach(() => {
-    const server = require('../src/server');
+    server = require('../src/server');
   });
 
   afterEach(() => {

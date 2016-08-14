@@ -7,7 +7,6 @@ describe('Course Model', () => {
   var testCourses;
   var tempCourse;
 
-
   // Test for all Courses
   it('Gets All', (done) => {
     Course.all(
@@ -88,7 +87,6 @@ describe('Course Model', () => {
     // Load in the info for an existing course
     const removeCourse = this.tempCourse;
     removeCourse.force = true;
-
     // Call course model for updating
     Course.remove(removeCourse,
       (err) => {

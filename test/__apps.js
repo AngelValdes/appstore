@@ -23,11 +23,10 @@ describe('App Routes', () => {
         const apps = res.body;
 
         // Save one single app from the list to test on in later tests
-        this.app = apps[0]
-
-        expect(apps.length).to.be.above(0)
+        this.app = apps[0];
+        expect(apps.length).to.be.above(0);
       })
-      .end(done)
+      .end(done);
   });
 
   // Test for a single app
@@ -37,12 +36,11 @@ describe('App Routes', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const app = res.body;
-        expect(app).to.have.property('id')
-        expect(app).to.have.property('title')
-        expect(app).to.have.property('description')
+        app = res.body;
+        expect(app).to.have.property('id');
+        expect(app).to.have.property('title');
+        expect(app).to.have.property('description');
       })
-      .end(done)
+      .end(done);
   });
-
 });

@@ -14,7 +14,6 @@ module.exports = (express) => {
 // respond with this json data
     res.json({ healthy: 'true' });
   });
-
 // returns router with correct data
   return router;
 };

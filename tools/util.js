@@ -20,5 +20,5 @@ exports.debug = (data) => {
       console.log(colors.cyan('log updated sucessfully'));
     }); // closing append file
   } // closing if debug process
-console.log(out1);
+  console.log(out1);
 }; // closing debug export

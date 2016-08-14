@@ -15,7 +15,6 @@ module.exports = (express) => {
     });
   });
 
-
 // create
   router.post('/users', (req, res) => {
     user.add(req.body, (err) => {
@@ -70,7 +69,6 @@ module.exports = (express) => {
       res.status(200).json(data.apps);
     });
   });
-
 // returns router with correct data
   return router;
 };

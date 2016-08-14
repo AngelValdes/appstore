@@ -4,6 +4,5 @@ module.exports = (express) => {
   router.get('/status', (req, res) => {
     res.json({ healthy: true });
   });
-
   return router;
 };
