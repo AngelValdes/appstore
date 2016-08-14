@@ -3,11 +3,6 @@ const faker = require('faker');
 const App = require('../src/models/app');
 
 describe('App Model', () => {
-  var server;
-  var testApps;
-  var tempApp;
-
-
   // Test for all Apps
   it('Gets All', (done) => {
     App.all(

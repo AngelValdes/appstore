@@ -24,17 +24,14 @@ describe('Course Model', () => {
 
   // Add a Course
   it('Adds a new Course', (done) => {
-
     // Generate a fake Course with a random title
     const fakeCourse = { name: faker.name.firstName() };
-
     // Call course model for adding
     Course.add(fakeCourse,
       (err) => {
         throw new Error(err);
       },
       (course) => {
-
         // Save the returned data for later use in tests
         this.tempCourse = course.dataValues;
 
@@ -47,7 +44,6 @@ describe('Course Model', () => {
 
   // Find a Course
   it('Find a Course', (done) => {
-
     // Generate a fake Course with a random title
     const targetCourse = this.testCourses[0];
 
@@ -57,7 +53,6 @@ describe('Course Model', () => {
         throw new Error(err);
       },
       (course) => {
-
         // Course.title returned from model should match course.title supplied
         expect(course.title).to.be.equal(targetCourse.title);
         done();
@@ -67,9 +62,8 @@ describe('Course Model', () => {
 
   // Update a Course
   it('Update a Course', (done) => {
-
     // Load in the info for an existing course
-    var updateCourse = this.tempCourse;
+    const updateCourse = this.tempCourse;
 
     // Generate a new title for hte course
     updateCourse.name = 'Not A Real Name';
@@ -91,9 +85,8 @@ describe('Course Model', () => {
 
   // Remove a Course
   it('Remove a Course', (done) => {
-
     // Load in the info for an existing course
-    var removeCourse = this.tempCourse;
+    const removeCourse = this.tempCourse;
     removeCourse.force = true;
 
     // Call course model for updating
@@ -102,12 +95,10 @@ describe('Course Model', () => {
         throw new Error(err);
       },
       (response) => {
-
         // if successfully removed a 1 should be returned
         expect(response).to.be.equal(1);
         done();
       }
     );
   });
-
 });
