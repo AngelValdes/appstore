@@ -5,13 +5,13 @@ const colors = require('colors');
 // create
 exports.add = (payload, err, success) => {
   db.app.create(payload).then(success).catch(err);
-  util.debug(colors.green('App created'));
+  util.debug(colors.green('CREATE ') + 'App Route hit');
 };
 
 // read all
 exports.all = (err, success) => {
   db.app.findAll().then(success).catch(err);
-  util.debug(colors.blue('read all App'));
+  util.debug(colors.cyan('READ ') + 'App Route hit');
 };
 
 // read by id
@@ -25,7 +25,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
-  util.debug(colors.blue('read App by id'));
+  util.debug(colors.cyan('READ BY ID ') + 'App Route hit');
 };
 
 // update
@@ -37,7 +37,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-  util.debug(colors.green('App updated'));
+  util.debug(colors.green('UPDATE ') + 'App Route hit');
 };
 
 // delete
@@ -47,5 +47,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
-  util.debug(colors.red('App deleted'));
+  util.debug(colors.red('DELETE ') + 'App Route hit');
 };
