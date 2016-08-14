@@ -24,7 +24,6 @@ describe('Course Routes', () => {
 
         // Save one single course from the list to test on in later tests
         this.course = courses[0];
-
         expect(courses.length).to.be.above(0);
       })
       .end(done);
