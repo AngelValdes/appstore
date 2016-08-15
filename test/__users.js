@@ -46,20 +46,18 @@ describe('User Routes', () => {
   // Test for the Apps of a Specific user
   it('GET /api/v1/users/:id/apps should find all apps for a user', (done) => {
     const newApp = { title: 'Best New Test App', description: 'none', userID: this.user.id };
-    App.add(newApp, (err) => {
-      throw new Error(err);
-    }, (appData) => {
+    App.add(newApp, () => {
+    (appData) => {
       request(server)
         .get('/api/v1/users/' + this.user.id + '/apps')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
         .expect((res) => {
           const apps = res.body;
-
           // Save one single app from the list to test on in later tests
           expect(apps.length).to.be.above(0);
         })
         .end(done);
-    });
+    };
   });
 });
