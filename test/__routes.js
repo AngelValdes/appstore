@@ -1,4 +1,5 @@
-
+// const expect = require('chai').expect;
+// const request = require('supertest');
 
 // array of all routes include keys to test
 const routes = [
@@ -57,6 +58,31 @@ const routes = [
     route: 'api/v1/users/:id',
     method: 'delete',
   },
+  {
+    description: 'Create an Course',
+    route: 'api/v1/courses',
+    method: 'post',
+  },
+  {
+    description: 'Read an Course',
+    route: 'api/v1/courses',
+    method: 'get',
+  },
+  {
+    description: 'Read an Course by id',
+    route: 'api/v1/courses/:id',
+    method: 'get',
+  },
+  {
+    description: 'update an Course',
+    route: 'api/v1/courses/:id',
+    method: 'post',
+  },
+  {
+    description: 'delete an Course',
+    route: 'api/v1/courses/:id',
+    method: 'delete',
+  },
 ];
 
 // setup a group of test
@@ -73,5 +99,5 @@ describe('Route testing', () => {
   afterEach(() => {
     server.close();
   });
-
+  // closing describe
 });
