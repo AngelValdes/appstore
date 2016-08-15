@@ -47,7 +47,6 @@ describe('User Routes', () => {
   it('GET /api/v1/users/:id/apps should find all apps for a user', (done) => {
     const newApp = { title: 'Best New Test App', description: 'none', userID: this.user.id };
     App.add(newApp, () => {
-    (appData) => {
       request(server)
         .get('/api/v1/users/' + this.user.id + '/apps')
         .set('Accept', 'application/json')
@@ -58,6 +57,6 @@ describe('User Routes', () => {
           expect(apps.length).to.be.above(0);
         })
         .end(done);
-    };
+    });
   });
 });
