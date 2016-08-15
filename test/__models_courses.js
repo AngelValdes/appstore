@@ -3,9 +3,6 @@ const faker = require('faker');
 const Course = require('../src/models/course');
 
 describe('Course Model', () => {
-  var testCourses;
-  var tempCourse;
-
   // Test for all Courses
   it('Gets All', (done) => {
     Course.all(
