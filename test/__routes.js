@@ -1,7 +1,8 @@
 // const expect = require('chai').expect;
 // const request = require('supertest');
+// const colors = require('colors');
 
-// array of all routes include keys to test
+// array of all routes include keys call specific properties of object
 const routes = [
   {
     description: 'Create an app',
