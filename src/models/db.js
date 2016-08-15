@@ -26,7 +26,7 @@ const user = sequelize.define('user', {
     type: Sequelize.STRING,
   },
   password: {
-    type: Sequelize.STING,
+    type: Sequelize.STRING,
   },
   age: {
     type: Sequelize.INTEGER,
@@ -35,6 +35,9 @@ const user = sequelize.define('user', {
     type: Sequelize.STRING,
   },
   admin: {
+    type: Sequelize.BOOLEAN,
+  },
+  student: {
     type: Sequelize.BOOLEAN,
   },
 });
