@@ -3,7 +3,6 @@ const faker = require('faker');
 const Course = require('../src/models/course');
 
 describe('Course Model', () => {
-  var server;
   var testCourses;
   var tempCourse;
 

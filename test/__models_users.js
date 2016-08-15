@@ -3,11 +3,6 @@ const faker = require('faker');
 const User = require('../src/models/user');
 
 describe('User Model', () => {
-  var server;
-  var testUsers;
-  var tempUser;
-
-
   // Test for all Users
   it('Gets All', (done) => {
     User.all(

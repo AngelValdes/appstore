@@ -2,8 +2,8 @@ const expect = require('chai').expect;
 const request = require('supertest');
 
 describe('Course Routes', () => {
-  var server;
-  var course;
+  let server;
+  let course;
 
   beforeEach(() => {
     server = require('../src/server');
@@ -17,7 +17,7 @@ describe('Course Routes', () => {
   it('GET /api/v1/courses returns multiple courses', (done) => {
     request(server)
       .get('/api/v1/courses')
-      .set('Accept', 'courselication/json')
+      .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
         const courses = res.body;
@@ -33,13 +33,13 @@ describe('Course Routes', () => {
   it('GET /api/v1/courses/:id returns a obj with id, name, and semester properties', (done) => {
     request(server)
       .get('/api/v1/courses/' + this.course.id)
-      .set('Accept', 'courselication/json')
+      .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const course = res.body;
-        expect(course).to.have.property('id');
-        expect(course).to.have.property('name');
-        expect(course).to.have.property('semester');
+        const courses = res.body;
+        expect(courses).to.have.property('id');
+        expect(courses).to.have.property('name');
+        expect(courses).to.have.property('semester');
       })
       .end(done);
   });

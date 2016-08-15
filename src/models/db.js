@@ -9,6 +9,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
   host: process.env.DB_HOST,
   dialect: process.env.DB_SCHEMA,
   port: process.env.DB_PORT,
+
 // how many connections are happening to our system
   pool: {
     max: 5,

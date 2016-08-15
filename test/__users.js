@@ -3,8 +3,8 @@ const request = require('supertest');
 const App = require('../src/models/app');
 
 describe('User Routes', () => {
-  var server;
-  var user;
+  let server;
+  let user;
 
   beforeEach(() => {
     server = require('../src/server');
