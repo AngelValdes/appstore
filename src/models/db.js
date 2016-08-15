@@ -25,11 +25,17 @@ const user = sequelize.define('user', {
   name: {
     type: Sequelize.STRING,
   },
+  password: {
+    type: Sequelize.STING,
+  },
   age: {
     type: Sequelize.INTEGER,
   },
   hobby: {
     type: Sequelize.STRING,
+  },
+  admin: {
+    type: Sequelize.BOOLEAN,
   },
 });
 
