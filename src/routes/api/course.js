@@ -27,7 +27,8 @@ module.exports = (express) => {
 
 // update
   router.post('/courses/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     course.update(req.body, (err) => {
       res.status(500).json(err);
@@ -38,7 +39,8 @@ module.exports = (express) => {
 
 // delete
   router.delete('/courses/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     course.remove(req.body, (err) => {
       res.status(500).json(err);
@@ -50,7 +52,8 @@ module.exports = (express) => {
 // read by id
 // respond with course by id when a GET request is made to the courses by id route
   router.get('/courses/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     course.one(req.body, (err) => {
       res.status(500).json(err);

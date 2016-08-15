@@ -25,8 +25,8 @@ module.exports = (express) => {
 
 // update
   router.post('/apps/:id', (req, res) => {
-    const rb = req.body.id;
-    rb = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     app.update(req.body, (err) => {
       res.status(500).json(err);
@@ -37,7 +37,8 @@ module.exports = (express) => {
 
 // delete
   router.delete('/apps/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     app.remove(req.body, (err) => {
       res.status(500).json(err);
@@ -48,7 +49,8 @@ module.exports = (express) => {
 
 // respond with app by id when a GET request is made to the apps by id route
   router.get('/apps/:id', (req, res) => {
-    req.body.id = req.params.id;
+    const rb = req.body;
+    rb.id = req.params.id;
 // respond with this json data
     app.one(req.body, (err) => {
       res.status(500).json(err);
