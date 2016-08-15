@@ -1,6 +1,6 @@
 
 
-// array of all routes to test
+// array of all routes include keys to test
 const routes = [
   {
     description: 'Create an app',
@@ -27,10 +27,41 @@ const routes = [
     route: 'api/v1/apps/:id',
     method: 'delete',
   },
+  {
+    description: 'Create an user',
+    route: 'api/v1/users',
+    method: 'post',
+  },
+  {
+    description: 'Read an user',
+    route: 'api/v1/users',
+    method: 'get',
+  },
+  {
+    description: 'Read an user by id',
+    route: 'api/v1/users/:id',
+    method: 'get',
+  },
+  {
+    description: 'Read all apps for user',
+    route: 'api/v1/users/:id/apps',
+    method: 'get',
+  },
+  {
+    description: 'Update an user',
+    route: 'api/v1/users/:id',
+    method: 'post',
+  },
+  {
+    description: 'Delete an user',
+    route: 'api/v1/users/:id',
+    method: 'delete',
+  },
 ];
 
 // setup a group of test
 describe('Route testing', () => {
+  // declare block scope for server
   let server;
 
 // before each instance
@@ -38,9 +69,9 @@ describe('Route testing', () => {
     server = require('../src/server');
   });
 
+// after each instance
   afterEach(() => {
     server.close();
   });
-
 
 });
