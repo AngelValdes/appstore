@@ -15,10 +15,8 @@ const util = require('../tools/util');
 // JSON formatting
 app.set('json spaces', 2);
 
-// pinning body parser to app(express)
 // body_parser.json - Parses the text as JSON and exposes the resulting object on req.body.
 app.use(bodyParser.json());
-
 
 // bodyParser.urlencoded - Parses the text as URL encoded data and exposes the resulting object
 app.use(bodyParser.urlencoded({
@@ -31,7 +29,6 @@ app.use('/api/v1', require('./routes/api/api')(express));
 app.use('/api/v1', require('./routes/api/app')(express));
 app.use('/api/v1', require('./routes/api/user')(express));
 app.use('/api/v1', require('./routes/api/course')(express));
-
 
 // sets variable server to the listening action on port
 const server = app.listen(port, () => {

@@ -49,7 +49,6 @@ module.exports = (express) => {
     });
   });
 
-// read by id
 // respond with course by id when a GET request is made to the courses by id route
   router.get('/courses/:id', (req, res) => {
     const rb = req.body;

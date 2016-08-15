@@ -5,7 +5,6 @@ module.exports = (express) => {
 // Sets constant of router to express.Router() function
   const router = express.Router();
 
-// read
 // respond with users json when a GET request is made to the users route
   router.get('/users', (req, res) => {
     user.all((err) => {
@@ -48,7 +47,6 @@ module.exports = (express) => {
     });
   });
 
-// read by id
 // respond with user by id when a GET request is made to the users by id route
   router.get('/users/:id', (req, res) => {
     const rb = req.body;
@@ -61,7 +59,6 @@ module.exports = (express) => {
     });
   });
 
-  // read apps by id
   // respond with user by id when a GET request is made to the users by id route
   router.get('/users/:id/apps', (req, res) => {
     const rb = req.body;

@@ -21,6 +21,7 @@ describe('Course Model', () => {
   it('Adds a new Course', (done) => {
     // Generate a fake Course with a random title
     const fakeCourse = { name: faker.name.firstName() };
+
     // Call course model for adding
     Course.add(fakeCourse,
       (err) => {
@@ -83,6 +84,7 @@ describe('Course Model', () => {
     // Load in the info for an existing course
     const removeCourse = this.tempCourse;
     removeCourse.force = true;
+
     // Call course model for updating
     Course.remove(removeCourse,
       (err) => {
