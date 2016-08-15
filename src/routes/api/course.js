@@ -5,8 +5,8 @@ module.exports = (express) => {
 // Sets constant of router to express.Router() function
   const router = express.Router();
 
-// read
-// respond with courses json when a GET request is made to the courses route
+
+// read - respond with courses json when a GET request is made to the courses route
   router.get('/courses', (req, res) => {
     course.all((err) => {
       res.status(500).json(err);

@@ -5,9 +5,7 @@ module.exports = (express) => {
 // Sets constant of router to express.Router() function
   const router = express.Router();
 
-
-// read
-// respond with apps json when a GET request is made to the apps route
+// read - respond with apps json when a GET request is made to the apps route
   router.get('/apps', (req, res) => {
     app.all((err) => {
       res.status(500).json(err);
@@ -27,7 +25,7 @@ module.exports = (express) => {
 
 // update
   router.post('/apps/:id', (req, res) => {
-    const id = req.params.id;
+    req.body.id = req.params.id;
 // respond with this json data
     app.update(req.body, (err) => {
       res.status(500).json(err);

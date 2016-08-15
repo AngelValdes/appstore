@@ -3,7 +3,6 @@ const request = require('supertest');
 
 describe('Course Routes', () => {
   let server;
-  let course;
 
   beforeEach(() => {
     server = require('../src/server');

@@ -1,9 +1,9 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 
+
 describe('App Routes', () => {
   let server;
-  let app;
 
   beforeEach(() => {
     server = require('../src/server');
@@ -30,13 +30,13 @@ describe('App Routes', () => {
   });
 
   // Test for a single app
-  it('GET /api/v1/apps/:id returns an app obj with id, title, description, and releaseDate properties', (done) => {
+  it('GET apps by id returns title, description, and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/apps/' + this.app.id)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        app = res.body;
+        const app = res.body;
         expect(app).to.have.property('id');
         expect(app).to.have.property('title');
         expect(app).to.have.property('description');
