@@ -101,17 +101,8 @@ describe('Route testing', () => {
   });
 
 // loop to run threw routes
-for (const i = 0; i < ;i++)
-
-
-
-
-
-
-
-
-
-
+  for (const i = 0; i < routes.length ; i++) {
+  }
 
 
   // closing describe
