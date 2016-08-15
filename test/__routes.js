@@ -99,5 +99,20 @@ describe('Route testing', () => {
   afterEach(() => {
     server.close();
   });
+
+// loop to run threw routes
+for (const i = 0; i < ;i++)
+
+
+
+
+
+
+
+
+
+
+
+
   // closing describe
 });
