@@ -101,7 +101,11 @@ describe('Route testing', () => {
   });
 
 // loop to run threw routes
-  for (const i = 0; i < routes.length ; i++) {
+  for (let i = 0; i < routes.length; i++) {
+// it statement gives description of what test is suppose to do
+    it(routes[i].description, () => {
+    // closing of the it statement
+    });
   }
 
 
