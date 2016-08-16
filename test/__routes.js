@@ -105,6 +105,14 @@ describe('Route testing', () => {
   for (let i = 0; i < routes.length; i++) {
 // it statement gives description of what test is suppose to do
     it(routes[i].description, () => {
+    // if methed is equal to get
+      if(method === 'get') {
+
+      } else if (method === 'post'){
+
+      }else{
+
+      }
     // closing of the it statement
     });
   }
