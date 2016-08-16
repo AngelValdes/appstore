@@ -106,9 +106,10 @@ describe('Route testing', () => {
 // it statement gives description of what test is suppose to do
     it(routes[i].description, () => {
     // if methed is equal to get
-      if(method === 'get') {
+      if (routes[i].method === 'get') {
+        
 
-      } else if (method === 'post'){
+      } else if (routes[i].method === 'post'){
 
       }else{
 
