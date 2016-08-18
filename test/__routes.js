@@ -1,4 +1,3 @@
- const expect = require('chai').expect;
  const request = require('supertest');
  const tools = require('../tools/util');
  const colors = require('colors');
@@ -115,6 +114,7 @@
         .expect('Content-Type', /json/)
         .expect(200)
         .end();
+         tools.debug(colors.green('sucess on get'));
        } else if (routes[i].method === 'post') {
          request(server)
         .post(routes[i])
@@ -122,6 +122,7 @@
         .expect('Content-Type', /json/)
         .expect(200)
         .end();
+         tools.debug(colors.green('sucess on post'));
        } else {
          request(server)
         .delete(routes[i])
@@ -129,6 +130,7 @@
         .expect('Content-Type', /json/)
         .expect(200)
         .end();
+         tools.debug(colors.green('sucess on delete'));
        }
     // closing of the it statement
      });
