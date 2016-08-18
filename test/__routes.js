@@ -107,12 +107,24 @@ describe('Route testing', () => {
     it(routes[i].description, () => {
     // if methed is equal to get
       if (routes[i].method === 'get') {
-        
-
+        request(server)
+        .get(routes[i])
+        .set()
+        .expect()
+        .expect()
+        .end();
       } else if (routes[i].method === 'post'){
-
-      }else{
-
+        .get(routes[i])
+        .set()
+        .expect()
+        .expect()
+        .end();
+      } else {
+        .get(routes[i])
+        .set()
+        .expect()
+        .expect()
+        .end();
       }
     // closing of the it statement
     });
