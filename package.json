@@ -41,7 +41,6 @@
     "express": "^4.14.0",
     "faker": "^3.1.0",
     "fs": "0.0.2",
-    "localenvironment": "^1.0.2",
     "mysql": "^2.11.1",
     "sequelize": "^3.23.6",
     "slogs": "^1.0.2",
