@@ -1,8 +1,6 @@
 # Appstore
 
-https://codeship.com/projects/b60f7a80-4964-0134-e318-56bd1d4e9b8b/status?branch=master
-
-
+[ ![codeship status for seanedw1/appstore](https://codeship.com/projects/b60f7a80-4964-0134-e318-56bd1d4e9b8b/status?branch=master)](https://codeship.com/projects/169525)
 
 full sail  student app store
 
