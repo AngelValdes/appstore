@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 // load in env file
-require('dotenv').config();
+require('localenvironment').config();
 
 // setting constant for envs
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
