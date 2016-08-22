@@ -123,9 +123,6 @@ which is the first step in the deployment pipeline.
 
 4) once completed and we confirmed out codebase is good we will manually push on heroku to the production server
 
-
-
-
 ## Endpoints
 
 ### CRUD FOR USERS
