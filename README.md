@@ -51,6 +51,81 @@ To start unit test in command line run.
 npm test
 ```
 
+### Workflow
+
+1) Confirm in master branch
+
+2) create a new branch
+
+```
+git checkout -b branchname
+```
+
+3) push up to new feature branch
+
+```
+git add -A
+
+git commit -m 'insert your msg here'
+
+git push
+
+```
+
+if this is your first time pushing to new branch run
+
+```
+git push --set-upstream origin branchname
+```
+
+5) once pushed we return to the master branch to merge (pull in) the feature branch
+
+```
+git checkout master
+```
+6) now that we are back in the master branch merge your feature branch into your master branch use the merge command followed by a push
+
+```
+git merge branchname
+
+git push
+```
+
+7) now that we have successfully merged our feature branch our ci tool will check to make sure your code is passing.
+
+8) once codeship confirms that the build passes we want to tag this version then merge our master into our release branch.
+
+9) to create a tag run
+
+```
+git tag v1.0.6 commitidgoeshere
+```
+
+10) once we have created our tag we want to continue with our merge to the release branch
+
+```
+git checkout release
+
+git merge branchname
+
+git push
+```
+11) once we push to release branch our codebase enters the first phase of the Deployment pipeline
+
+### Deployment
+
+1) once we merge our code to master our ci test run to confirm our codebase is passing our automated test.
+
+2) if our codebase passes ci test (codeship) we manually merge master branch to the release branch
+which is the first step in the deployment pipeline.
+
+3) once ci tool (codeship) confirms the build is good it will automatically be deployed from release repo onto our staging server.
+
+4) once completed and we confirmed out codebase is good we will manually push to the production server
+
+
+
+
 ## Endpoints
 
 ### CRUD FOR USERS
