@@ -121,7 +121,7 @@ which is the first step in the deployment pipeline.
 
 3) once ci tool (codeship) confirms the build is good it will automatically be deployed from release repo onto our staging server.
 
-4) once completed and we confirmed out codebase is good we will manually push to the production server
+4) once completed and we confirmed out codebase is good we will manually push on heroku to the production server
 
 
 
