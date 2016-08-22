@@ -6,5 +6,3 @@ module.exports = (express) => {
   });
   return router;
 };
-
-// test
