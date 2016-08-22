@@ -16,7 +16,7 @@ const secret = 'seanistheawsome';
 // config sets what port to run on
 const port = process.env.PORT || 3000;
 
-const util = require('../tools/util');
+const slog = require('slogs');
 
 // JSON formatting
 app.set('json spaces', 2);
@@ -44,7 +44,7 @@ app.use('/api/v1', require('./routes/api/auth')(express));
 // sets variable server to the listening action on port
 const server = app.listen(port, () => {
 //  console.log('server active on', port);
-  util.debug('server active on ' + port);
+  slog.debug('server active on ' + port);
 });
 // exports server to be used elsewhere
 module.exports = server;
