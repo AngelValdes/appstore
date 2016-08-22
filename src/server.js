@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // config sets what port to run on
-const port = process.env.PORT || 80;
+const port = 80;
 
 const slog = require('slogs');
 
