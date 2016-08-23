@@ -28,6 +28,17 @@ DB_SCHEMA=mysql
 DB_PORT=3306
 ```
 
+### config.json
+
+create a config.json file following this file structure on root level
+
+```
+{
+    "secret": "yourseceretgoeshere"
+}
+
+```
+
 ### Server
 
 To start sever in command line run.

@@ -7,11 +7,8 @@ const bodyParser = require('body-parser');
 // sets constant 'app' to express functionality
 const app = express();
 
-// sets constant 'app' to express functionality
-const secret = 'seanistheawsome';
-
 // sets constant to create and verify web token for auth
-// const jwt = require('jsonwebtoken');
+// const jwt = require('express-jwt');
 
 // config sets what port to run on
 const port = process.env.PORT || 3000;
@@ -20,9 +17,6 @@ const slog = require('slogs');
 
 // JSON formatting
 app.set('json spaces', 2);
-
-// secret key
-app.set('secret', secret);
 
 // body_parser.json - Parses the text as JSON and exposes the resulting object on req.body.
 app.use(bodyParser.json());
@@ -37,6 +31,7 @@ app.use('/', require('./routes')(express));
 app.use('/api/v1', require('./routes/api/api')(express));
 app.use('/api/v1', require('./routes/api/app')(express));
 app.use('/api/v1', require('./routes/api/user')(express));
+
 app.use('/api/v1', require('./routes/api/course')(express));
 app.use('/api/v1', require('./routes/api/auth')(express));
 

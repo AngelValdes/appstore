@@ -1,10 +1,17 @@
 const course = require('../../models/course');
+const jwt = require('express-jwt');
+const config = require('../../config');
 
 // Set module.exports to a function that excepts express as a paramater of express.
 module.exports = (express) => {
 // Sets constant of router to express.Router() function
   const router = express.Router();
 
+  const jwtCheck = jwt({
+    secret: config.secret,
+  });
+
+  router.use('/courses', jwtCheck);
 
 // read - respond with courses json when a GET request is made to the courses route
   router.get('/courses', (req, res) => {
@@ -60,6 +67,15 @@ module.exports = (express) => {
       res.status(200).json(data);
     });
   });
+
+  router.get('/courses',
+    jwt({ secret: 'seanisawsome' }),
+    (req, res) => {
+      if (!req.user.admin) return res.sendStatus(401);
+      res.sendStatus(200);
+    });
+
+
 // returns router with correct data
   return router;
 };
