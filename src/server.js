@@ -8,7 +8,15 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // sets constant to create and verify web token for auth
-// const jwt = require('express-jwt');
+const jwt = require('express-jwt');
+
+// sets secret check
+const config = require('./config');
+
+ // check for signature
+const jwtCheck = jwt({
+  secret: config.secret,
+});
 
 // config sets what port to run on
 const port = process.env.PORT || 3000;
@@ -31,8 +39,7 @@ app.use('/', require('./routes')(express));
 app.use('/api/v1', require('./routes/api/api')(express));
 app.use('/api/v1', require('./routes/api/app')(express));
 app.use('/api/v1', require('./routes/api/user')(express));
-
-app.use('/api/v1', require('./routes/api/course')(express));
+app.use('/api/v1', jwtCheck, require('./routes/api/course')(express));
 app.use('/api/v1', require('./routes/api/auth')(express));
 
 

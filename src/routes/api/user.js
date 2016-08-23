@@ -59,17 +59,6 @@ module.exports = (express) => {
     });
   });
 
-  // respond with user by id when a GET request is made to the users by id route
-  router.get('/users/:id/apps', (req, res) => {
-    const rb = req.body;
-    rb.id = req.params.id;
-  // respond with this json data
-    user.one(req.body, (err) => {
-      res.status(500).json(err);
-    }, (data) => {
-      res.status(200).json(data.apps);
-    });
-  });
 // returns router with correct data
   return router;
 };
