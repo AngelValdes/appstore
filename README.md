@@ -32,7 +32,7 @@ DB_PORT=3306
 
 create a config.json file following this file structure on root level
 
-```
+```json
 {
     "secret": "yourseceretgoeshere"
 }

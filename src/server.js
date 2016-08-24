@@ -10,10 +10,10 @@ const app = express();
 // sets constant to create and verify web token for auth
 const jwt = require('express-jwt');
 
-// sets secret check
-const config = require('./config');
+// sets secret
+const config = require('./../config');
 
- // check for signature
+ // check for signature secret set in seprate file
 const jwtCheck = jwt({
   secret: config.secret,
 });
@@ -39,8 +39,8 @@ app.use('/', require('./routes')(express));
 app.use('/api/v1', require('./routes/api/api')(express));
 app.use('/api/v1', require('./routes/api/app')(express));
 app.use('/api/v1', require('./routes/api/user')(express));
-app.use('/api/v1', jwtCheck, require('./routes/api/course')(express));
 app.use('/api/v1', require('./routes/api/auth')(express));
+app.use('/api/v1', jwtCheck, require('./routes/api/course')(express));
 
 
 // sets variable server to the listening action on port

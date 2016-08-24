@@ -49,16 +49,3 @@ exports.remove = (payload, err, success) => {
   }).then(success).catch(err);
   slog.debug(colors.red('DELETE ') + 'User Route hit');
 };
-
-exports.try = (payload, err, success) => {
-  db.user.find({
-    where: {
-      id: payload.id,
-    },
-    include: [{
-      all: true,
-      nested: true,
-    }],
-  }).then(success).catch(err);
-  slog.debug(colors.green('Create ') + 'User token hit');
-};
