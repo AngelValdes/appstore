@@ -60,7 +60,15 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InBldGVyIiwicGFzc3dvcmQiOiI
 
 ### Protected routes
 
-applying jwt to authenticate for protected route
+applying jwt to authenticate via postman for protected route
+
+
+sample
+```
+
+```
+
+applying jwt to authenticate via url for protected route
 
 sample
 ```

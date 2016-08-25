@@ -43,7 +43,7 @@ module.exports = (express) => {
   router.post('/logout', (req, res) => {
     auth.remove(req.body, (err) => {
       res.status(500).json(err);
-      slog.debug(colors.red('Fail ') + 'destroy token Route');
+      slog.debug(colors.red('Fail ') + 'DELETE token Route');
     }, (data) => {
       if (!data) {
         res.status(500).send({ message: 'User not found.' });
@@ -61,7 +61,7 @@ module.exports = (express) => {
           });
         }
       }
-      slog.debug(colors.green('Success ') + 'Destroy token Route hit');
+      slog.debug(colors.green('Success ') + 'DELETE token Route hit');
     });
   });
     // returns router with correct data
