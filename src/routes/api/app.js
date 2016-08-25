@@ -47,11 +47,11 @@ module.exports = (express) => {
     });
   });
 
-// respond with app by id when a GET request is made to the apps by id route
+  // respond with course by id when a GET request is made to the courses by id route
   router.get('/apps/:id', (req, res) => {
     const rb = req.body;
     rb.id = req.params.id;
-// respond with this json data
+  // respond with this json data
     app.one(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {

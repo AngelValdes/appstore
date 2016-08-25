@@ -1,4 +1,6 @@
 const auth = require('../../models/auth');
+const jwt = require('jsonwebtoken');
+const config = require('../../../config');
 
 module.exports = (express) => {
   const router = express.Router();
@@ -8,7 +10,27 @@ module.exports = (express) => {
     auth.check(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
-      res.status(200).json(data);
+      if (!data) {
+        res.status(500).send({ message: 'User not found.' });
+      } else if (data) {
+        // check password
+        if (data.password !== req.body.password) {
+          res.status(500).send({ message: 'Wrong password.' });
+        } else {
+          // sets specifs fields of object required to sign
+          const User = { name: req.body.name, password: req.body.password };
+          // create a token
+          const token = jwt.sign(User, config.secret, {
+              // expires in 7 days
+            expiresIn: 7 * 1440,
+          });
+          // return the information including token as JSON
+          res.status(200).send({
+            message: 'here is your token!',
+            token,
+          });
+        }
+      }
     });
   });
     // returns router with correct data
