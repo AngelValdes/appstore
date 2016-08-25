@@ -19,7 +19,7 @@ npm i mocha -g
 
 create a .env following this file structure on root level
 
-```
+```javascript
 DB_HOST=localhost
 DB_NAME=apiCRUD
 DB_USER=root
@@ -37,6 +37,25 @@ create a config.json file following this file structure on root level
     "secret": "yourseceretgoeshere"
 }
 
+```
+
+### jsonwebtokens (jwt)
+
+sample
+```json
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InBldGVyIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNDcyMTA2NzYxLCJleHAiOjE0NzIxMTY4NDF9.Jn4MCFozU0685i6ic12E3FfgaApHd3PJgUQYqTb_xTM
+```
+
+## Generating a token
+
+
+### Protected routes
+
+applying jwt to authenticate for protected route
+
+sample
+```
+http://localhost:3000/api/v1/beta?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InBldGVyIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNDcyMTA2NzYxLCJleHAiOjE0NzIxMTY4NDF9.Jn4MCFozU0685i6ic12E3FfgaApHd3PJgUQYqTb_xTM
 ```
 
 ### Server
@@ -136,12 +155,27 @@ which is the first step in the deployment pipeline.
 
 ## Endpoints
 
+### AUTH
+
+POST localhost:3000/api/v1/auth - Create jsonwebtoken(jwt)
+
+sample
+
+* this is not a real token
+
+```json
+{
+  "message": "here is your token!",
+  "token":"eyJhbGciOiJIUefI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyMSIsInBhc3N3b3JkIjorMTIzNCIImlhdCI6MTQ3MjExNTYyNiwiZXhwIjoxNDcyMTE1NjQ2fQ.b1YLQI_Y5iic7xrDb-zn6nJsi76gJox8anfpzYITnMs"
+}
+```
+
 ### CRUD FOR USERS
 
 *  POST localhost:3000/api/v1/users - Create User
 
 sample
-```
+```json
 {
   "name": "john doe",
   "age": 50,
@@ -152,7 +186,7 @@ sample
 * GET localhost:3000/api/v1/users/1 - Display User by id
 
 sample response
-```
+```json
 {
   "id": 1,
   "name": "john doe",
@@ -167,7 +201,7 @@ sample response
 * GET localhost:3000/api/v1/users - Display All Users
 
 sample response
-```
+```json
 [
   {
     "id": 1,
@@ -196,11 +230,10 @@ sample response
 ]
 ```
 
-
 *  POST localhost:3000/api/v1/users/1 - Update User by id
 
 sample
-```
+```json
 {
   "id": 1,
   "name": "steven smith",
@@ -214,7 +247,7 @@ sample
 *  DELETE localhost:3000/api/v1/users/1 - DELETE User by id
 
 sample response
-```
+```json
 1
 ```
 
@@ -224,7 +257,7 @@ sample response
 *  POST localhost:3000/api/v1/apps - create app
 
 sample
-```
+```json
 {
   "title": "test app",
   "description": "fjndclkdlj",
@@ -235,7 +268,7 @@ sample
 * GET localhost:3000/api/v1/apps/1 - Display App by id
 
 sample response
-```
+```json
 {
   "id": 1,
   "title": "test app",
@@ -250,7 +283,7 @@ sample response
 * GET localhost:3000/api/v1/users/1 - Display All Apps from specific user
 
 sample response
-```
+```json
 {
   "id": 1,
   "name": "john doe",
@@ -275,7 +308,7 @@ sample response
 * GET localhost:3000/api/v1/apps - Display All Apps
 
 sample response
-```
+```json
 [
   {
     "id": 1,
@@ -310,7 +343,7 @@ sample response
 *  POST localhost:3000/api/v1/apps/1 - UPDATE App by id
 
 sample
-```
+```json
 {
   "id": 1,
   "title": "testing",
@@ -325,16 +358,16 @@ sample
 *  DELETE localhost:3000/api/v1/apps/1 - DELETE App by id
 
 sample response
-```
+```json
 1
 ```
 
-### CRUD FOR COURSE
+### CRUD FOR BETA APPS
 
-*  POST localhost:3000/api/v1/courses - Create course
+*  POST localhost:3000/api/v1/courses - Create beta apps
 
 sample
-```
+```json
 {
   "name": "deployment of web application",
   "code": "dwa123",
@@ -342,10 +375,10 @@ sample
 }
 ```
 
-* GET localhost:3000/api/v1/courses/1 - Display courses by id
+* GET localhost:3000/api/v1/courses/1 - Display beta apps by id
 
 sample response
-```
+```json
 {
   "id": 1,
   "name": "deployment of web application",
@@ -360,10 +393,10 @@ sample response
 
 ```
 
-* GET localhost:3000/api/v1/courses - Display All courses
+* GET localhost:3000/api/v1/courses - Display All beta apps
 
 sample response
-```
+```json
 [
 {
   "id": 1,
@@ -401,10 +434,10 @@ sample response
 ```
 
 
-*  POST localhost:3000/api/v1/courses/1 - Update courses by id
+*  POST localhost:3000/api/v1/courses/1 - Update beta apps  by id
 
 sample
-```
+```json
 {
   "name": "deployment of web application",
   "code": "dwa123",
@@ -416,10 +449,10 @@ sample
 
 ```
 
-*  DELETE localhost:3000/api/v1/courses/1 - DELETE courses by id
+*  DELETE localhost:3000/api/v1/betas/1 - DELETE beta apps by id
 
 sample response
-```
+```json
 1
 ```
 
