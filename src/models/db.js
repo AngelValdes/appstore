@@ -76,7 +76,7 @@ user.hasMany(app, {
   foreignKey: 'userID',
 });
 
-// establish relation in db for user and course
+// establish relation in db for user and beta apps
 user.hasMany(beta, {
   foreignKey: 'betaID',
 });

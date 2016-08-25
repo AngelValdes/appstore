@@ -39,7 +39,9 @@ create a config.json file following this file structure on root level
 
 ```
 
-### jsonwebtokens (jwt)
+### jsonwebtoken (jwt)
+
+a jwt, is a signed token that is used to securely send or receive information that has been encrypted by a digital signature.
 
 sample
 ```json
@@ -55,7 +57,7 @@ applying jwt to authenticate for protected route
 
 sample
 ```
-http://localhost:3000/api/v1/beta?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InBldGVyIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNDcyMTA2NzYxLCJleHAiOjE0NzIxMTY4NDF9.Jn4MCFozU0685i6ic12E3FfgaApHd3PJgUQYqTb_xTM
+http://localhost:3000/api/v1/betas?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InBldGVyIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNDcyMTA2NzYxLCJleHAiOjE0NzIxMTY4NDF9.Jn4MCFozU0685i6ic12E3FfgaApHd3PJgUQYqTb_xTM
 ```
 
 ### Server
@@ -177,6 +179,7 @@ sample
 sample
 ```json
 {
+  "username": "jd2016",
   "name": "john doe",
   "age": 50,
   "hobby": "dancing",
@@ -189,6 +192,7 @@ sample response
 ```json
 {
   "id": 1,
+  "username": "jd2016",
   "name": "john doe",
   "age": 50,
   "hobby": "dancing",
@@ -205,6 +209,7 @@ sample response
 [
   {
     "id": 1,
+    "username": "jd2016",
     "name": "john doe",
     "age": 50,
     "hobby": "dancing",
@@ -213,6 +218,7 @@ sample response
   },
   {
     "id": 2,
+    "username": "jed2016",
     "name": "jane doe",
     "age": 34,
     "hobby": "softball",
@@ -221,6 +227,7 @@ sample response
   },
   {
     "id": 3,
+    "username": "ks2016",
     "name": "kevin smith",
     "age": 21,
     "hobby": "programming",
@@ -236,6 +243,7 @@ sample
 ```json
 {
   "id": 1,
+  "username": "st2016",
   "name": "steven smith",
   "age": 45,
   "hobby": "sports",
@@ -286,6 +294,7 @@ sample response
 ```json
 {
   "id": 1,
+  "username": "jd2016",
   "name": "john doe",
   "age": 50,
   "hobby": "dancing",
@@ -301,7 +310,57 @@ sample response
       "updatedAt": "2016-08-12T18:30:49.000Z",
       "userID": 1
     }
+  ],
+  "betas": [
+    {
+      "id": 1,
+      "title": "test app",
+      "description": "fjndclkdlj",
+      "releaseDate": null,
+      "createdAt": "2016-08-11T21:57:20.000Z",
+      "updatedAt": "2016-08-12T18:30:49.000Z",
+      "userID": 1
+    }
   ]
+
+}
+```
+
+* GET localhost:3000/api/v1/users/1 - Display All Beta Apps from specific user
+
+sample response
+```json
+{
+  "id": 1,
+  "username": "jd2016",
+  "name": "john doe",
+  "age": 50,
+  "hobby": "dancing",
+  "createdAt": "2016-06-08T01:45:31.000Z",
+  "updatedAt": "2016-06-11T21:54:21.000Z",
+  "apps": [
+    {
+      "id": 1,
+      "title": "test app",
+      "description": "fjndclkdlj",
+      "releaseDate": null,
+      "createdAt": "2016-08-11T21:57:20.000Z",
+      "updatedAt": "2016-08-12T18:30:49.000Z",
+      "userID": 1
+    }
+  ],
+  "betas": [
+    {
+      "id": 1,
+      "title": "test app",
+      "description": "fjndclkdlj",
+      "releaseDate": null,
+      "createdAt": "2016-08-11T21:57:20.000Z",
+      "updatedAt": "2016-08-12T18:30:49.000Z",
+      "userID": 1
+    }
+  ]
+
 }
 ```
 
@@ -364,92 +423,84 @@ sample response
 
 ### CRUD FOR BETA APPS
 
-*  POST localhost:3000/api/v1/courses - Create beta apps
+*  POST localhost:3000/api/v1/betas - Create betas apps
 
 sample
 ```json
 {
-  "name": "deployment of web application",
-  "code": "dwa123",
-  "semester": "1608",
+  "title": "test app",
+  "description": "fjndclkdlj",
 }
 ```
 
-* GET localhost:3000/api/v1/courses/1 - Display beta apps by id
+* GET localhost:3000/api/v1/betas/1 - Display betas apps by id
 
 sample response
 ```json
 {
   "id": 1,
-  "name": "deployment of web application",
-  "code": "dwa123",
-  "semester": "1608",
-  "hours": 50,
-  "startDate": "null",
-  "endDate": "null",
-  "createdAt": "2016-08-08T01:45:31.000Z",
-  "updatedAt": "2016-08-08T01:45:31.000Z",
+  "title": "test app",
+  "description": "fjndclkdlj",
+  "releaseDate": null,
+  "createdAt": "2016-08-11T21:57:20.000Z",
+  "updatedAt": "2016-08-11T21:57:20.000Z",
+  "userID": null
 }
 
 ```
 
-* GET localhost:3000/api/v1/courses - Display All beta apps
+* GET localhost:3000/api/v1/betas - Display All betas apps
 
 sample response
 ```json
 [
-{
-  "id": 1,
-  "name": "deployment of web application",
-  "code": "dwa123",
-  "semester": "1608",
-  "hours": "null",
-  "startDate": "null",
-  "endDate": "null",
-  "createdAt": "2016-08-08T01:45:31.000Z",
-  "updatedAt": "2016-08-08T01:45:31.000Z",
-},{
-  "id": 2,
-  "name": "mobile device deployment",
-  "code": "mdd123",
-  "semester": "1610",
-  "hours": "null",
-  "startDate": "null",
-  "endDate": "null",
-  "createdAt": "2016-08-08T01:45:31.000Z",
-  "updatedAt": "2016-08-08T01:45:31.000Z",
-},{
-  "id": 3,
-  "name": "final project 1",
-  "code": "fp1",
-  "semester": "1610",
-  "hours": "null",
-  "startDate": "null",
-  "endDate": "null",
-  "createdAt": "2016-08-08T01:45:31.000Z",
-  "updatedAt": "2016-08-08T01:45:31.000Z",
-}
-
+  {
+    "id": 1,
+    "title": "test app",
+    "description": "fake app",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
+  },
+  {
+    "id": 2,
+    "title": "test app 2",
+    "description": "fake app 2",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
+  },
+  {
+    "id": 3,
+    "title": "test app 3",
+    "description": "fake app 3",
+    "releaseDate": null,
+    "createdAt": "2016-08-11T21:57:20.000Z",
+    "updatedAt": "2016-08-11T21:57:20.000Z",
+    "userID": null
+  },
 ]
 ```
 
 
-*  POST localhost:3000/api/v1/courses/1 - Update beta apps  by id
+*  POST localhost:3000/api/v1/betas/1 - Update betas apps  by id
 
 sample
 ```json
 {
-  "name": "deployment of web application",
-  "code": "dwa123",
-  "semester": "1610",
-  "hours": "null",
-  "startDate": "null",
-  "endDate": "null",
+  "id": 1,
+  "title": "testing",
+  "description": "you are updating",
+  "releaseDate": null,
+  "createdAt": "2016-08-12T18:31:36.000Z",
+  "updatedAt": "2016-08-12T19:41:46.000Z",
+  "userID": null
 }
-
 ```
 
-*  DELETE localhost:3000/api/v1/betas/1 - DELETE beta apps by id
+*  DELETE localhost:3000/api/v1/betas/1 - DELETE betas apps by id
 
 sample response
 ```json
