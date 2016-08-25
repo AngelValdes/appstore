@@ -1,6 +1,6 @@
 {
   "name": "appstore",
-  "version": "1.6.0",
+  "version": "1.9.0",
   "description": "fullsail appstore",
   "main": "src/server.js",
   "engines": {
@@ -46,6 +46,7 @@
     "mysql": "^2.11.1",
     "sequelize": "^3.23.6",
     "slogs": "^1.0.3",
-    "supertest": "^2.0.0"
+    "supertest": "^2.0.0",
+    "underscore": "^1.8.3"
   }
 }

@@ -1,6 +1,8 @@
 const user = require('../../models/user');
 const jwt = require('express-jwt');
 const config = require('../../../config');
+const slog = require('slogs');
+const colors = require('colors');
 
 // Set module.exports to a function that excepts express as a paramater of express.
 module.exports = (express) => {
@@ -18,8 +20,10 @@ module.exports = (express) => {
   router.get('/users', (req, res) => {
     user.all((err) => {
       res.status(500).json(err);
+      slog.debug(colors.red('Fail ') + 'READ App Route');
     }, (data) => {
       res.status(200).json(data);
+      slog.debug(colors.green('Success ') + 'READ App Route hit');
     });
   });
 
@@ -27,8 +31,10 @@ module.exports = (express) => {
   router.post('/users', (req, res) => {
     user.add(req.body, (err) => {
       res.status(500).json(err);
+      slog.debug(colors.red('Fail ') + 'READ App Route');
     }, (data) => {
       res.status(200).json(data);
+      slog.debug(colors.green('Success ') + 'READ App Route hit');
     });
   });
 
@@ -39,8 +45,10 @@ module.exports = (express) => {
 // respond with this json data
     user.update(req.body, (err) => {
       res.status(500).json(err);
+      slog.debug(colors.red('Fail ') + 'READ App Route');
     }, (data) => {
       res.status(200).json(data);
+      slog.debug(colors.green('Success ') + 'READ App Route hit');
     });
   });
 
@@ -51,8 +59,10 @@ module.exports = (express) => {
 // respond with this json data
     user.remove(req.body, (err) => {
       res.status(500).json(err);
+      slog.debug(colors.red('Fail ') + 'READ App Route');
     }, (data) => {
       res.status(200).json(data);
+      slog.debug(colors.green('Success ') + 'READ App Route hit');
     });
   });
 
@@ -63,8 +73,10 @@ module.exports = (express) => {
 // respond with this json data
     user.one(req.body, (err) => {
       res.status(500).json(err);
+      slog.debug(colors.red('Fail ') + 'READ App Route');
     }, (data) => {
       res.status(200).json(data);
+      slog.debug(colors.green('Success ') + 'READ App Route hit');
     });
   });
 

@@ -15,6 +15,13 @@ npm i mocha -g
 
 ```
 
+### Postman
+
+postman is a http client used for testing apis. postman will be required for this api.
+
+[Get postman](https://www.getpostman.com/)
+
+
 ### ENV file
 
 create a .env following this file structure on root level
@@ -161,7 +168,7 @@ which is the first step in the deployment pipeline.
 
 POST localhost:3000/api/v1/auth - Create jsonwebtoken(jwt)
 
-sample
+success sample
 
 * this is not a real token
 
@@ -172,6 +179,15 @@ sample
 }
 ```
 
+fail sample
+
+* this is not a real token
+
+```json
+{
+  "message": "user not found",
+}
+```
 ### CRUD FOR USERS
 
 *  POST localhost:3000/api/v1/users - Create User
