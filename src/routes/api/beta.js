@@ -1,4 +1,4 @@
-const course = require('../../models/course');
+const beta = require('../../models/beta');
 const jwt = require('express-jwt');
 const config = require('../../../config');
 
@@ -11,10 +11,10 @@ module.exports = (express) => {
     secret: config.secret,
   });
 // requiring route to check secret
-  router.use('./routes/api/course', jwtCheck);
+  router.use('./routes/api/beta', jwtCheck);
 // read - respond with courses json when a GET request is made to the courses route
-  router.get('/courses', (req, res) => {
-    course.all((err) => {
+  router.get('/betas', (req, res) => {
+    beta.all((err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -22,8 +22,8 @@ module.exports = (express) => {
   });
 
 // create
-  router.post('/courses', (req, res) => {
-    course.add(req.body, (err) => {
+  router.post('/betas', (req, res) => {
+    beta.add(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -31,11 +31,11 @@ module.exports = (express) => {
   });
 
 // update
-  router.post('/courses/:id', (req, res) => {
+  router.post('/betas/:id', (req, res) => {
     const rb = req.body;
     rb.id = req.params.id;
 // respond with this json data
-    course.update(req.body, (err) => {
+    beta.update(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -43,11 +43,11 @@ module.exports = (express) => {
   });
 
 // delete
-  router.delete('/courses/:id', (req, res) => {
+  router.delete('/betas/:id', (req, res) => {
     const rb = req.body;
     rb.id = req.params.id;
 // respond with this json data
-    course.remove(req.body, (err) => {
+    beta.remove(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);
@@ -55,11 +55,11 @@ module.exports = (express) => {
   });
 
 // respond with course by id when a GET request is made to the courses by id route
-  router.get('/courses/:id', (req, res) => {
+  router.get('/betas/:id', (req, res) => {
     const rb = req.body;
     rb.id = req.params.id;
 // respond with this json data
-    course.one(req.body, (err) => {
+    beta.one(req.body, (err) => {
       res.status(500).json(err);
     }, (data) => {
       res.status(200).json(data);

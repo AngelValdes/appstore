@@ -22,6 +22,9 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
 
 // In db user table will be displayed as users (plural)
 const user = sequelize.define('user', {
+  username: {
+    type: Sequelize.STRING,
+  },
   name: {
     type: Sequelize.STRING,
   },
@@ -56,24 +59,15 @@ const app = sequelize.define('app', {
 });
 
 // In db course table will be displayed as courses (plural)
-const course = sequelize.define('course', {
-  name: {
+const beta = sequelize.define('beta', {
+  title: {
     type: Sequelize.STRING,
   },
-  code: {
+  description: {
     type: Sequelize.STRING,
   },
-  semester: {
-    type: Sequelize.STRING,
-  },
-  hours: {
+  releaseDate: {
     type: Sequelize.DATE,
-  },
-  startDate: {
-    type: Sequelize.DATEONLY,
-  },
-  endDate: {
-    type: Sequelize.DATEONLY,
   },
 });
 
@@ -83,8 +77,8 @@ user.hasMany(app, {
 });
 
 // establish relation in db for user and course
-course.hasMany(user, {
-  foreignKey: 'courseID',
+user.hasMany(beta, {
+  foreignKey: 'betaID',
 });
 
 // setup ability to reach to db to syncronize to this format
@@ -93,4 +87,4 @@ sequelize.sync();
 exports.sequelize = sequelize;
 exports.user = user;
 exports.app = app;
-exports.course = course;
+exports.beta = beta;

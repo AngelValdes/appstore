@@ -27,9 +27,9 @@ app.use(bodyParser.urlencoded({
 app.use('/', require('./routes')(express));
 app.use('/api/v1', require('./routes/api/api')(express));
 app.use('/api/v1', require('./routes/api/app')(express));
-app.use('/api/v1', require('./routes/api/user')(express));
 app.use('/api/v1', require('./routes/api/auth')(express));
-app.use('/api/v1', require('./routes/api/course')(express));
+app.use('/api/v1', require('./routes/api/beta')(express));
+app.use('/api/v1', require('./routes/api/user')(express));
 
 
 // sets variable server to the listening action on port

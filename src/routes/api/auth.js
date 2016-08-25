@@ -18,11 +18,11 @@ module.exports = (express) => {
           res.status(500).send({ message: 'Wrong password.' });
         } else {
           // sets specifs fields of object required to sign
-          const User = { name: req.body.name, password: req.body.password };
+          const User = { username: req.body.username, password: req.body.password };
           // create a token
           const token = jwt.sign(User, config.secret, {
               // expires in 7 days
-            expiresIn: 7 * 1440,
+            expiresIn: 20,
           });
           // return the information including token as JSON
           res.status(200).send({

@@ -6,7 +6,7 @@ const colors = require('colors');
 exports.check = (payload, err, sucess) => {
   db.user.find({
     where: {
-      name: payload.name,
+      username: payload.username,
       password: payload.password,
     },
   }).then(sucess).catch(err);

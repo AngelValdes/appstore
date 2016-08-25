@@ -47,7 +47,7 @@ module.exports = (express) => {
     });
   });
 
-  // respond with course by id when a GET request is made to the courses by id route
+  // respond with apps by id when a GET request is made to the courses by id route
   router.get('/apps/:id', (req, res) => {
     const rb = req.body;
     rb.id = req.params.id;
